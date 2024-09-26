@@ -3,35 +3,52 @@ import sys
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-#####################################################
-# Please finish all TODOs in this file for MP1;
-# do not change other code/formatting.
-#####################################################
-
 def save_file(content, file_path):
     with open(file_path, 'w') as file:
         file.write(content)
 
-def prompt_model(dataset, model_name = "deepseek-ai/deepseek-coder-6.7b-base", quantization = True):
+def prompt_model(dataset, model_name="deepseek-ai/deepseek-coder-6.7b-base", quantization=True):
     print(f"Working with {model_name} quantization {quantization}...")
-    
-    # TODO: download the model
-    
-  
+
+    # Download the tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+
     if quantization:
-        # TODO: load the model with quantization
+        # Load the model with quantization using QLoRA
+        bnb_config = BitsAndBytesConfig(load_in_4bit=True,  # 4-bit quantization
+                                        bnb_4bit_use_double_quant=True,  # double quantization
+                                        bnb_4bit_quant_type="nf4",  # Normal Float 4-bit
+                                        bnb_4bit_compute_dtype=torch.bfloat16)  # using bfloat16 for computation
+        
+        model = AutoModelForCausalLM.from_pretrained(model_name,
+                                                     device_map="auto",  # automatically map to available GPUs
+                                                     quantization_config=bnb_config,
+                                                     torch_dtype=torch.bfloat16)  # using bfloat16
         
     else:
-        # TODO: load the model without quantization
-        
+        # Load the model without quantization
+        model = AutoModelForCausalLM.from_pretrained(model_name,
+                                                     device_map="auto",  # automatically map to available GPUs
+                                                     torch_dtype=torch.bfloat16)  # using bfloat16
+
+    model.eval()  # set the model to evaluation mode (important for inference)
 
     results = []
     for case in dataset:
         prompt = case['prompt']
-        # TODO: prompt the model and get the response
-        
+        # Tokenize the input prompt
+        inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+
+        # Generate the model response with temperature 0
+        with torch.no_grad():
+            output = model.generate(**inputs, max_length=500, temperature=0)
+
+        # Decode the response to text
+        response = tokenizer.decode(output[0], skip_special_tokens=True)
+
         print(f"Task_ID {case['task_id']}:\nPrompt:\n{prompt}\nResponse:\n{response}")
         results.append(dict(task_id=case["task_id"], completion=response))
+    
     return results
 
 def read_jsonl(file_path):
@@ -65,7 +82,7 @@ if __name__ == "__main__":
     input_dataset = args[0]
     model = args[1]
     output_file = args[2]
-    if_quantization = args[3] # True or False
+    if_quantization = args[3]  # True or False
     
     if not input_dataset.endswith(".jsonl"):
         raise ValueError(f"{input_dataset} should be a `.jsonl` file!")
