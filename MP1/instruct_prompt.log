@@ -1,0 +1,1359 @@
+/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:1150: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: /usr/lib64-nvidia did not contain ['libcudart.so', 'libcudart.so.11.0', 'libcudart.so.12.0'] as expected! Searching further paths...
+  warn(msg)
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/sys/fs/cgroup/memory.events /var/colab/cgroup/jupyter-children/memory.events')}
+  warn(msg)
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('http'), PosixPath('//172.28.0.1'), PosixPath('8013')}
+  warn(msg)
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('//colab.research.google.com/tun/m/cc48301118ce562b961b3c22d803539adc1e0c19/gpu-t4-s-20fgdr5g06goy --tunnel_background_save_delay=10s --tunnel_periodic_background_save_frequency=30m0s --enable_output_coalescing=true --output_coalescing_required=true --gorilla_ws_opt_in --log_code_content'), PosixPath('--logtostderr --listen_host=172.28.0.12 --target_host=172.28.0.12 --tunnel_background_save_url=https')}
+  warn(msg)
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/datalab/web/pyright/typeshed-fallback/stdlib,/usr/local/lib/python3.10/dist-packages')}
+  warn(msg)
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('/env/python')}
+  warn(msg)
+/usr/local/lib/python3.10/dist-packages/bitsandbytes/cuda_setup/main.py:149: UserWarning: WARNING: The following directories listed in your path were found to be non-existent: {PosixPath('module'), PosixPath('//ipykernel.pylab.backend_inline')}
+  warn(msg)
+2024-09-23 05:05:44.427194: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-09-23 05:05:44.447835: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-09-23 05:05:44.454232: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-09-23 05:05:45.765168: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:1150: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Working with deepseek-ai/deepseek-coder-6.7b-instruct quantization True...
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please run
+
+python -m bitsandbytes
+
+ and submit this information together with your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+bin /usr/local/lib/python3.10/dist-packages/bitsandbytes/libbitsandbytes_cuda122.so
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching in backup paths...
+CUDA SETUP: CUDA runtime path found: /usr/local/cuda/lib64/libcudart.so
+CUDA SETUP: Highest compute capability among GPUs detected: 7.5
+CUDA SETUP: Detected CUDA version 122
+CUDA SETUP: Loading binary /usr/local/lib/python3.10/dist-packages/bitsandbytes/libbitsandbytes_cuda122.so...
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [07:56<07:56, 476.78s/it]Downloading shards: 100%|██████████| 2/2 [08:29<00:00, 215.73s/it]Downloading shards: 100%|██████████| 2/2 [08:29<00:00, 254.89s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:46<00:46, 46.52s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:03<00:00, 29.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:03<00:00, 31.68s/it]
+Some weights of LlamaForCausalLM were not initialized from the model checkpoint at deepseek-ai/deepseek-coder-6.7b-instruct and are newly initialized: ['model.layers.0.self_attn.rotary_emb.inv_freq', 'model.layers.14.self_attn.rotary_emb.inv_freq', 'model.layers.28.self_attn.rotary_emb.inv_freq', 'model.layers.26.self_attn.rotary_emb.inv_freq', 'model.layers.29.self_attn.rotary_emb.inv_freq', 'model.layers.10.self_attn.rotary_emb.inv_freq', 'model.layers.4.self_attn.rotary_emb.inv_freq', 'model.layers.2.self_attn.rotary_emb.inv_freq', 'model.layers.24.self_attn.rotary_emb.inv_freq', 'model.layers.12.self_attn.rotary_emb.inv_freq', 'model.layers.21.self_attn.rotary_emb.inv_freq', 'model.layers.15.self_attn.rotary_emb.inv_freq', 'model.layers.27.self_attn.rotary_emb.inv_freq', 'model.layers.5.self_attn.rotary_emb.inv_freq', 'model.layers.13.self_attn.rotary_emb.inv_freq', 'model.layers.9.self_attn.rotary_emb.inv_freq', 'model.layers.11.self_attn.rotary_emb.inv_freq', 'model.layers.8.self_attn.rotary_emb.inv_freq', 'model.layers.22.self_attn.rotary_emb.inv_freq', 'model.layers.16.self_attn.rotary_emb.inv_freq', 'model.layers.19.self_attn.rotary_emb.inv_freq', 'model.layers.18.self_attn.rotary_emb.inv_freq', 'model.layers.25.self_attn.rotary_emb.inv_freq', 'model.layers.17.self_attn.rotary_emb.inv_freq', 'model.layers.1.self_attn.rotary_emb.inv_freq', 'model.layers.23.self_attn.rotary_emb.inv_freq', 'model.layers.30.self_attn.rotary_emb.inv_freq', 'model.layers.31.self_attn.rotary_emb.inv_freq', 'model.layers.6.self_attn.rotary_emb.inv_freq', 'model.layers.20.self_attn.rotary_emb.inv_freq', 'model.layers.7.self_attn.rotary_emb.inv_freq', 'model.layers.3.self_attn.rotary_emb.inv_freq']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/usr/local/lib/python3.10/dist-packages/transformers/generation/utils.py:1270: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
+  warnings.warn(
+Task_ID HumanEval/161:
+Prompt:
+
+def solve(s):
+    """You are given a string s.
+    if s[i] is a letter, reverse its case from lower to upper or vise versa, 
+    otherwise keep it as it is.
+    If the string contains no letters, reverse the string.
+    The function should return the resulted string.
+    Examples
+    solve("1234") = "4321"
+    solve("ab") = "AB"
+    solve("#a@C") = "#A@c"
+    """
+
+Response:
+
+def solve(s):
+    """You are given a string s.
+    if s[i] is a letter, reverse its case from lower to upper or vise versa, 
+    otherwise keep it as it is.
+    If the string contains no letters, reverse the string.
+    The function should return the resulted string.
+    Examples
+    solve("1234") = "4321"
+    solve("ab") = "AB"
+    solve("#a@C") = "#A@c"
+    """
+    if not any(char.isalpha() for char in s):
+        return s[::-1]
+    else:
+        return ''.join(char.upper() if char.islower() else char.lower() for char in s)
+
+
+print(solve("1234"))  # "4321"
+print(solve("ab"))  # "AB"
+print(solve("#a@C"))  # "#A@c"
+print(solve("1234ab"))  # "4321AB"
+print(solve("1234abAB"))  # "4321ABab"
+print(solve(""))  # ""
+print(solve("1234abAB1234"))  # "4321abab1234"
+print(solve("1234abAB1234abAB"))  # "4321abab1234ABAB"
+print(solve("1234abAB1234abAB1234abAB"))  # "4321abab1234ABAB1234abab"
+print(solve("1234abAB1234abAB1234abAB1234abAB"))  # "4321abab1234ABAB1234abab1234ABAB"
+print(solve("1234abAB1234abAB1234abAB1234abAB1234abAB"))  # "4321abab1
+Task_ID HumanEval/53:
+Prompt:
+
+
+def add(x: int, y: int):
+    """Add two numbers x and y
+    >>> add(2, 3)
+    5
+    >>> add(5, 7)
+    12
+    """
+
+Response:
+
+
+def add(x: int, y: int):
+    """Add two numbers x and y
+    >>> add(2, 3)
+    5
+    >>> add(5, 7)
+    12
+    """
+    return x + y
+
+
+def subtract(x: int, y: int):
+    """Subtract number y from x
+    >>> subtract(5, 3)
+    2
+    >>> subtract(7, 2)
+    5
+    """
+    return x - y
+
+
+def multiply(x: int, y: int):
+    """Multiply two numbers x and y
+    >>> multiply(2, 3)
+    6
+    >>> multiply(5, 7)
+    35
+    """
+    return x * y
+
+
+def divide(x: int, y: int):
+    """Divide x by y
+    >>> divide(6, 2)
+    3
+    >>> divide(35, 7)
+    5
+    """
+    if y == 0:
+        raise ZeroDivisionError("division by zero")
+    return x // y
+
+
+def power(x: int, y: int):
+    """Calculate x to the power of y
+    >>> power(2, 3)
+    8
+    >>> power(5, 2)
+    25
+    """
+    return x ** y
+
+
+def factorial(n: int):
+    """Calculate the factorial of n
+    >>> factorial(5)
+    120
+    >>> factorial(4)
+    24
+    """
+    if n < 0:
+        raise ValueError("factorial not defined for negative values")
+    elif n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+def gcd(x: int, y: int):
+    """Calculate the Greatest Common Divisor of x and y
+    >>> gcd(12, 8)
+    4
+    >>> gcd(35, 10)
+    5
+    """
+    while y:
+        x, y = y
+Task_ID HumanEval/70:
+Prompt:
+
+def strange_sort_list(lst):
+    '''
+    Given list of integers, return list in strange order.
+    Strange sorting, is when you start with the minimum value,
+    then maximum of the remaining integers, then minimum and so on.
+
+    Examples:
+    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]
+    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]
+    strange_sort_list([]) == []
+    '''
+
+Response:
+
+def strange_sort_list(lst):
+    '''
+    Given list of integers, return list in strange order.
+    Strange sorting, is when you start with the minimum value,
+    then maximum of the remaining integers, then minimum and so on.
+
+    Examples:
+    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]
+    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]
+    strange_sort_list([]) == []
+    '''
+    lst.sort()
+    result = []
+    while lst:
+        result.append(lst.pop(0))
+        if lst:
+            result.append(lst.pop())
+    return result
+
+
+print(strange_sort_list([1, 2, 3, 4]))
+print(strangeort_list([5, 5, 5, 5]))
+print(strange_sort_list([]))
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4, 2, 3
+# 5, 5, 5, 5
+# []
+
+# 1, 4,
+Task_ID HumanEval/10:
+Prompt:
+
+
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+
+Response:
+
+
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+    if not string:
+        return ''
+    if is_palindrome(string):
+        return string
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            return string + string[:i][::-1]
+    return string + string[::-1]
+
+
+if __name__ == "__main__":
+    print(make_palindrome("cat"))
+    print(make_palindrome("cata"))
+    print(make_palindrome(""))
+    print(make_palindrome("a"))
+    print(make_palindrome("aa"))
+    print(make_palindrome("aaa"))
+    print(make_palindrome("aaaa"))
+    print(make_palindrome("aaaaa"))
+    print(make_palindrome("aaaaaa"))
+    print(make_palindrome("aaaaaaa"))
+    print(make_palindrome("aaaaaaaa"))
+    print(make_palindrome("aaaaaaaaa"))
+    print(make_palindrome("aaaaaaaaaa"))
+    print(make_palindrome("aaaaaaaaaaa"))
+    print(make_palindrome("aaaaaaaaaaaa"))
+    print(make_palindrome("aaaaaaaaaaaaa"))
+    print(makemain__("aaaaaaaaaaaaaa"))
+    print(make_palind
+Task_ID HumanEval/67:
+Prompt:
+
+def fruit_distribution(s,n):
+    """
+    In this task, you will be given a string that represents a number of apples and oranges 
+    that are distributed in a basket of fruit this basket contains 
+    apples, oranges, and mango fruits. Given the string that represents the total number of 
+    the oranges and apples and an integer that represent the total number of the fruits 
+    in the basket return the number of the mango fruits in the basket.
+    for examble:
+    fruit_distribution("5 apples and 6 oranges", 19) ->19 - 5 - 6 = 8
+    fruit_distribution("0 apples and 1 oranges",3) -> 3 - 0 - 1 = 2
+    fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
+    fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
+    """
+
+Response:
+
+def fruit_distribution(s,n):
+    """
+    In this task, you will be given a string that represents a number of apples and oranges 
+    that are distributed in a basket of fruit this basket contains 
+    apples, oranges, and mango fruits. Given the string that represents the total number of 
+    the oranges and apples and an integer that represent the total number of the fruits 
+    in the basket return the number of the mango fruits in the basket.
+    for examble:
+    fruit_distribution("5 apples and 6 oranges", 19) ->19 - 5 - 6 = 8
+    fruit_distribution("0 apples and 1 oranges",3) -> 3 - 0 - 1 = 2
+    fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
+    fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
+    """
+    apples, oranges = map(int, s.split()[::2])
+    return n - apples - oranges
+
+print(fruit_distribution("5 apples and 6 oranges", 19)) #-> 8
+print(fruitdistribution("0 apples and 1 oranges",3)) #-> 2
+print(fruit_distribution("2 apples and 3 oranges", 100)) #-> 95
+print(fruit_distribution("100 apples and 1 oranges",120)) #-> 19
+
+# 1. Split the string into words.
+# 2. Extract the number of apples and oranges from the words.
+# 3. Subtract the number of apples and oranges from the total number of fruits to get the number of mangoes.
+# 4. Return the number of mangoes.
+<jupupyter_code>
+def fruit_distribution(s,n):
+    """
+    In this task, you will be given a string that represents a number of apples and oranges 
+    that are distributed in a basket of
+Task_ID HumanEval/39:
+Prompt:
+
+
+def prime_fib(n: int):
+    """
+    prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+    >>> prime_fib(1)
+    2
+    >>> prime_fib(2)
+    3
+    >>> prime_fib(3)
+    5
+    >>> prime_fib(4)
+    13
+    >>> prime_fib(5)
+    89
+    """
+
+Response:
+
+
+def prime_fib(n: int):
+    """
+    prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+    >>> prime_fib(1)
+    2
+    >>> prime_fib(2)
+    3
+    >>> prime_fib(3)
+    5
+    >>> prime_fib(4)
+    13
+    >>> prime_fib(5)
+    89
+    """
+    if n < 1:
+        raise ValueError("n must be greater than 0")
+
+    primes = []
+    fibs = [0, 1]
+    i = 2
+    while len(primes) < n:
+        fibs.append(fibs[-1] + fibs[-2])
+        if is_prime(fibs[-1]):
+            primes.append(fibs[-1])
+
+    return primes[-1]
+
+
+def is_prime(n: int):
+    """
+    is_prime checks if n is a prime number.
+    """
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
+
+#tests/test_prime_fib.py
+import pytest
+from prime_fib import prime_fib
+
+
+def test_prime_fib():
+    assert prime_fib(1) == 2
+    assert prime_fib(2) == 3
+    assert prime_fib(3) == 5
+    assert prime_fib(4) == 13
+    assert prime_fib(5) == 89
+
+
+def test_invalid_input():
+    with pytest.raises(ValueError):
+        prime_fib(0)
+    with pytest.raises(ValueError):
+        prime_fib(-1)
+
+#tests/test_prime_fib_performance.py
+
+Task_ID HumanEval/48:
+Prompt:
+
+
+def is_palindrome(text: str):
+    """
+    Checks if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('aaaaa')
+    True
+    >>> is_palindrome('zbcd')
+    False
+    """
+
+Response:
+
+
+def is_palindrome(text: str):
+    """
+    Checks if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('aaaaa')
+    True
+    >>> is_palindrome('zbcd')
+    False
+    """
+    return text == text[::-1]
+
+
+def is_anagram(text1: str, text2: str):
+    """
+    Checks if given strings are anagrams
+    >>> is_anagram('', '')
+    True
+    >>> is_anagram('abc', 'cba')
+    True
+    >>> is_anagram('abcd', 'dcba')
+    True
+    >>> is_anagram('abc', 'abcd')
+    False
+    >>> is_anagram('abc', 'cbd')
+    False
+    """
+    return sorted(text1) == sorted(text2)
+
+
+def is_subsequence(text1: str, text2: str):
+    """
+    Checks if given string is a subsequence of another string
+    >>> is_subsequence('', 'abc')
+    True
+    >>> is_subsequence('a', 'abc')
+    True
+    >>> isis_subsequence('abcd', 'abc')
+    False
+    >>> is_subsequence('abc', 'abc')
+    True
+    >>> is_subsequence('abc', 'abg')
+    False
+    """
+    i = j = 0
+    while i < len(text1) and j < len(text2):
+        if text1[i] == text2[j]:
+            i += 1
+        j += 1
+    return i == len(text1)
+
+
+def is_substring(text1: str, text2: str):
+    """
+    Checks if given string is a substring of another string
+    >>> is_substring('', 'abc')
+    True
+    >>> is_substring('a', 'abc')
+    True
+    >>> is_substring('abcd', 'abc')
+    False
+
+Task_ID HumanEval/9:
+Prompt:
+from typing import List, Tuple
+
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    """ From a given list of integers, generate a list of rolling maximum element found until given moment
+    in the sequence.
+    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])
+    [1, 2, 3, 3, 3, 4, 4]
+    """
+
+Response:
+from typing import List, Tuple
+
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    """ From a given list of integers, generate a list of rolling maximum element found until given moment
+    in the sequence.
+    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])
+    [1, 2, 3, 3, 3, 4, 4]
+    """
+    max_num = numbers[0]
+    max_list = [max_num]
+    for num in numbers[1:]:
+        if num > max_num:
+            max_num = num
+        max_list.append(max_num)
+    return max_list
+
+def rolling_min(numbers: List[int]) -> List[int]:
+    """ From a given list of integers, generate a list of rolling minimum element found until given moment
+    in the sequence.
+    >>> rolling_min([1, 2, 3, 2, 3, 4, 2])
+    [1, 1, 1, 1, 1, 1, 1]
+    """
+    min_num = numbers[0]
+    min_list = [min_num]
+    for num in numbers[1:]:
+        if num < min_num:
+            min_num = num
+        min_list.append(min_num)
+    return min_list
+
+def rolling_range(numbers: List[int]) -> List[int]:
+    """ From a given list of integers, generate a list of rolling range (max - min) found until given moment
+    in the sequence.
+    >>> rolling_range([1, 2, 3, 2, 3, 4, 2])
+    [0, 1, 2, 1, 2, 3, 2]
+    """
+    max_list = rolling_max(numbers)
+    min_list = rolling(numbers)
+    range_list = [max_list[i] - min_list[i] for i in range(len(numbers))]
+
+Task_ID HumanEval/36:
+Prompt:
+
+
+def fizz_buzz(n: int):
+    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+    >>> fizz_buzz(50)
+    0
+    >>> fizz_buzz(78)
+    2
+    >>> fizz_buzz(79)
+    3
+    """
+
+Response:
+
+
+def fizz_buzz(n: int):
+    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+    >>> fizz_buzz(50)
+    0
+    >>> fizz_buzz(78)
+    2
+    >>> fizz_buzz(79)
+    3
+    """
+    count = 0
+    for i in range(11, n):
+        if i % 11 == 0 or i % 13 == 0:
+            count += str(i).count('7')
+    return count
+
+
+if __name__ == "__s__":
+    import doctest
+    doctest.testmod()
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizzs__, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+    doctest.run_docstring_examples(fizz_buzz, globals(), verbose=True)
+   
+Task_ID HumanEval/133:
+Prompt:
+
+
+def sum_squares(lst):
+    """You are given a list of numbers.
+    You need to return the sum of squared numbers in the given list,
+    round each element in the list to the upper int(Ceiling) first.
+    Examples:
+    For lst = [1,2,3] the output should be 14
+    For lst = [1,4,9] the output should be 98
+    For lst = [1,3,5,7] the output should be 84
+    For lst = [1.4,4.2,0] the output should be 29
+    For lst = [-2.4,1,1] the output should be 6
+    
+
+    """
+
+Response:
+
+
+def sum_squares(lst):
+    """You are given a list of numbers.
+    You need to return the sum of squared numbers in the given list,
+    round each element in the list to the upper int(Ceiling) first.
+    Examples:
+    For lst = [1,2,3] the output should be 14
+    For lst = [1,4,9] the output should be 98
+    For lst = [1,3,5,7] the output should be 84
+    For lst = [1.4,4.2,0] the output should be 29
+    For lst = [-2.4,1,1] the output should be 6
+    
+
+    """
+    return sum([int(abs(i))**2 for i in lst])
+
+
+print(sum_squares([1.4, 4.2, 0]))  # 29
+print(sum_squares([-2.4, 1, 1]))  # 6
+print(sum_squares([1, 2, 3]))  # 14
+print(sum_squares([1, 4, 9]))  # 98
+print(sum_squares([1, 3, 5, 7]))  # 84
+
+# 1.4, 4.2, 0 => 29
+# -2.4, 1, 1 => 6
+# 1, 2, 3 => 14
+# 1, 4, 9 => 98
+# 1, 3, 5, 7 => 84
+
+# 1.4 => 2
+# 4.2 => 5
+# 0 => 0
+
+# 2, 5, 0 => 29
+
+# 2**2 + 5**2 + 0**2 = 4 + 25 + 0 = 29
+
+# 29
+
+# 2**2 + 5**2 + 0**2 = 4 + 25 + 0 = 29
+
+# 29
+
+# 2**2 + 5**2 + 0**2 = 
+Task_ID HumanEval/124:
+Prompt:
+
+def valid_date(date):
+    """You have to write a function which validates a given date string and
+    returns True if the date is valid otherwise False.
+    The date is valid if all of the following rules are satisfied:
+    1. The date string is not empty.
+    2. The number of days is not less than 1 or higher than 31 days for months 1,3,5,7,8,10,12. And the number of days is not less than 1 or higher than 30 days for months 4,6,9,11. And, the number of days is not less than 1 or higher than 29 for the month 2.
+    3. The months should not be less than 1 or higher than 12.
+    4. The date should be in the format: mm-dd-yyyy
+
+    for example: 
+    valid_date('03-11-2000') => True
+
+    valid_date('15-01-2012') => False
+
+    valid_date('04-0-2040') => False
+
+    valid_date('06-04-2020') => True
+
+    valid_date('06/04/2020') => False
+    """
+
+Response:
+
+def valid_date(date):
+    """You have to write a function which validates a given date string and
+    returns True if the date is valid otherwise False.
+    The date is valid if all of the following rules are satisfied:
+    1. The date string is not empty.
+    2. The number of days is not less than 1 or higher than 31 days for months 1,3,5,7,8,10,12. And the number of days is not less than 1 or higher than 30 days for months 4,6,9,11. And, the number of days is not less than 1 or higher than 29 for the month 2.
+    3. The months should not be less than 1 or higher than 12.
+    4. The date should be in the format: mm-dd-yyyy
+
+    for example: 
+    valid_date('03-11-2000') => True
+
+    valid_date('15-01-2012') => False
+
+    valid_date('04-0-2040') => False
+
+    valid_date('06-04-2020') => True
+
+    valid_date('06/04/2020') => False
+    """
+    if date == "":
+        return False
+    date_list = date.split("-")
+    if len(date_list) != 3:
+        return False
+    month, day, year = date_list
+    if not month.isdigit() or not day.isdigit() or not year.isdigit():
+        return False
+    month, day, year = int(month), int(day), int(year)
+    if month < 1 or month > 12:
+        return False
+    if day < 1:
+        return False
+    if month in [1, 3, 5, 7, 8, 10, 12]:
+        if day > 31:
+            return False
+    elif month == 2:
+        if day > 29:
+            return False
+    else:
+        if day > 
+Task_ID HumanEval/69:
+Prompt:
+
+def search(lst):
+    '''
+    You are given a non-empty list of positive integers. Return the greatest integer that is greater than 
+    zero, and has a frequency greater than or equal to the value of the integer itself. 
+    The frequency of an integer is the number of times it appears in the list.
+    If no such a value exist, return -1.
+    Examples:
+        search([4, 1, 2, 2, 3, 1]) == 2
+        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+        search([5, 5, 4, 4, 4]) == -1
+    '''
+
+Response:
+
+def search(lst):
+    '''
+    You are given a non-empty list of positive integers. Return the greatest integer that is greater than 
+    zero, and has a frequency greater than or equal to the value of the integer itself. 
+    The frequency of an integer is the number of times it appears in the list.
+    If no such a value exist, return -1.
+    Examples:
+        search([4, 1, 2, 2, 3, 1]) == 2
+        search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+        search([5, 5, 4, 4, 4]) == -1
+    '''
+    from collections import Counter
+    c = Counter(lst)
+    for i in sorted(c.keys(), reverse=True):
+        if c[i] >= i:
+            return i
+    return -1
+
+print(search([4, 1, 2, 2, 3, 1])) #== 2
+print(search([1, 2, 2, 3, 3, 3, 4, 4, 4])) #== 3
+print(search([5, 5, 4, 4, 4])) #== -1
+
+# 1. Count the frequency of each number in the list using Counter.
+# 2. Iterate over the keys of the Counter in descending order.
+# 3. For each key, check if its frequency is greater than or equal to the key itself.
+# 4. If it is, return the key.
+# 5. If no such key is found after checking all keys, return -1.
+
+# Time complexity: O(n log n) because of the sorting operation.
+# Space complexity: O(n) because of the Counter.
+
+# The time complexity is O(n log n) because we are sorting the keys of the Counter. The space complexity is O(n) because we are storing the frequency of each number in the list.
+
+# The time complexity is O(n log n) because we are sorting the keys of
+Task_ID HumanEval/162:
+Prompt:
+
+def string_to_md5(text):
+    """
+    Given a string 'text', return its md5 hash equivalent string.
+    If 'text' is an empty string, return None.
+
+    >>> string_to_md5('Hello world') == '3e25960a79dbc69b674cd4ec67a72c62'
+    """
+
+Response:
+
+def string_to_md5(text):
+    """
+    Given a string 'text', return its md5 hash equivalent string.
+    If 'text' is an empty string, return None.
+
+    >>> string_to_md5('Hello world') == '3e25960a79dbc69b674cd4ec67a72c62'
+    """
+    import hashlib
+    if text == "":
+        return None
+    else:
+        return hashlib.md5(text.encode()).hexdigest()
+
+
+def string_to_sha1(text):
+    """
+    Given a string 'text', return its sha1 hash equivalent string.
+    If 'text' is an empty string, return None.
+
+    >>> string_to_sha1('Hello world') == '2ef7bde608ce5404e93d5a3b5f79be76130115'
+    """
+    import hashlib
+    if text == "":
+        return None
+    else:
+        return hashlib.sha1(text.encode()).hexdigest()
+
+
+def string_to_sha256(text):
+    """
+    Given a string 'text', return its sha256 hash equivalent string.
+    If 'text' is an empty string, return None.
+
+    >>> string_to_sha256('Hello world') == 'b94d27b9934d3e08a52e52d7da7dabfac484efe37a538019e0b9f7764e5991'
+    """
+    import hashlib
+    if text == "":
+        return None
+    else:
+        return hashlib.sha256(text.encode()).hexdigest()
+
+
+def string_to_sha512(text):
+    """
+    Given a string 'text', return its sha512 hash equivalent string.
+    If 'text' is an empty string, return None.
+
+    >>> string_to_sha512('Hello world
+Task_ID HumanEval/62:
+Prompt:
+
+
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+
+Response:
+
+
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+    return [i * xs[i] for i in range(1, len(xs))]
+
+
+def integral(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return integral of this polynomial in the same form.
+    >>> integral([3, 1, 2, 4, 5])
+    [0.0, 0.5, 0.333333333333333, 0.25, 0.2]
+    >>> integral([1, 2, 3])
+    [0.0, 0.5, 1.0]
+    """
+    return [xs[i] / (i if i != 0 else 1) for i in range(len(xs))]
+
+
+def evaluate(coeffs: list, x: float):
+    """ coeffs represent coefficients of a polynomial.
+    coeffs[0] + coeffs[1] * x + coeffs[2] * x^2 + ....
+     Return the value of this polynomial at x.
+    >>> evaluate([3, 1, 2, 4, 5], 2)
+    33
+    >>> evaluate([1, 2, 3], 2)
+    11
+    """
+    return sum(coeffs[i] * x ** i for i in range(len(coeffs)))
+
+
+def add(coeffs1: list, coeffs2: list):
+    """ coeffs1 and coeff
+Task_ID HumanEval/121:
+Prompt:
+
+def solution(lst):
+    """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+    
+
+    Examples
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 9
+    solution([30, 13, 24, 321]) ==>0
+    """
+
+Response:
+
+def solution(lst):
+    """Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+    
+
+    Examples
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 9
+    solution([30, 13, 24, 321]) ==>0
+    """
+    return sum(x for i, x in enumerate(lst) if i % 2 == 0 and x % 2 != 0)
+
+
+print(solution([5, 8, 7, 1]) ==> 12)
+print(solution([3, 3, 3, 3, 3]) ==> 9)
+print(solution([30, 13, 24, 321]) ==>0)
+
+
+# 5, 8, 7, 1
+# 0, 1, 2, 3
+# 5 + 7 = 12
+
+# 3, 3, 3, 3, 3
+# 0, 1, 2, 3, 4
+# 3 + 3 + 3 + 3 = 9
+
+# 30, 13, 24, 321
+# 0, 1, 2, 3
+# 24 + 321 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+# 0 + 345 = 345
+
+
+Task_ID HumanEval/28:
+Prompt:
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    """ Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+
+Response:
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    """ Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+    return ''.join(strings)
+
+def split(string: str) -> List[str]:
+    """ Split a string into a list of characters
+    >>> split('')
+    []
+    >>> split('abc')
+    ['a', 'b', 'c']
+    """
+    return list(string)
+
+def reverse(string: str) -:
+    """ Reverse a string
+    >>> reverse('')
+    ''
+    >>> reverse('abc')
+    'cba'
+    """
+    return s[::-1]
+
+def upper(string: str) -> str:
+    """ Convert a string to uppercase
+    >>> upper('')
+    ''
+    >>> upper('abc')
+    'ABC'
+    """
+    return string.upper()
+
+def lower(string: str) -> str:
+    """ Convert a string to lowercase
+    >>> lower('')
+    ''
+    >>> lower('ABC')
+    'abc'
+    """
+    return string.lower()
+
+def strip(string: str) -> str:
+    """ Remove leading and trailing whitespace from a string
+    >>> strip('')
+    ''
+    >>> strip('  abc  ')
+    'abc'
+    """
+    return string.strip()
+
+def replace(string: str, old: str, new: str) -> str:
+    """ Replace all occurrences of a substring in a string
+    >>> replace('', 'a', 'b')
+    ''
+    >>> replace('abcabc', 'a', 'b')
+    'bbcbc'
+    """
+    return string.replace(old, new)
+
+def startswith(string: str, prefix: str) -> bool:
+    """ Check if a string starts with a specific prefix
+    >>> startswing('', 'a')
+    False
+    >>>
+Task_ID HumanEval/140:
+Prompt:
+
+def fix_spaces(text):
+    """
+    Given a string text, replace all spaces in it with underscores, 
+    and if a string has more than 2 consecutive spaces, 
+    then replace all consecutive spaces with - 
+    
+    fix_spaces("Example") == "Example"
+    fix_spaces("Example 1") == "Example_1"
+    fix_spaces(" Example 2") == "_Example_2"
+    fix_spaces(" Example   3") == "_Example-3"
+    """
+
+Response:
+
+def fix_spaces(text):
+    """
+    Given a string text, replace all spaces in it with underscores, 
+    and if a string has more than 2 consecutive spaces, 
+    then replace all consecutive spaces with - 
+    
+    fix_spaces("Example") == "Example"
+    fix_spaces("Example 1") == "Example_1"
+    fix_spaces(" Example 2") == "_Example_2"
+    fix_spaces(" Example   3") == "_Example-3"
+    """
+    # replace all spaces with underscores
+    text = text.replace(' ', '_')
+    
+    # if a string has more than 2 consecutive underscores, 
+    # then replace all consecutive underscores with - 
+    while '__' in text:
+        text = text.replace('__', '-')
+    
+    # if the string starts with an underscore, remove it
+    if text[0] == '_':
+        text = text[1:]
+    
+    return text
+
+
+print(fix_spaces("Example"))
+print(fixExample 1</code>
+print(fix_spaces(" Example 2"))
+print(fix_spaces(" Example   3"))
+print(fix_spaces("  Example  4  "))
+print(fix_spaces(" Example    5"))
+print(fix_spaces("Example 6"))
+print(fix_spaces("Example  7  "))
+print(fix_spaces("  Example   8"))
+print(fix_spaces("Example   9  "))
+print(fix_spaces("   Example   10   "))
+</code>
+
+</body>
+</html>
+"""
+
+# -----------------
+# Helper functions
+# -----------------
+
+def get_text_between_tags(html, tag):
+    """
+    Given a string html and a tag, return the text between the first occurrence of the tag and the next tag of the same type.
+    """
+    start = html.find('<' + tag + '>')
+    if start == -1:
+        return ''
+    end
+Task_ID HumanEval/64:
+Prompt:
+
+FIX = """
+Add more test cases.
+"""
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+
+Response:
+
+FIX = """
+Add more test cases.
+"""
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+    vowels = "aeiou"
+    count = 0
+    for i in range(len(s)):
+        if s[i] in vowels:
+            count += 1
+        if i == len(s) - 1 and s[i] == "y":
+            count += 1
+    return count
+
+
+def test_vowels_count():
+    assert vowels_count("abcde") == 2
+    assert vowels_count("ACEDY") == 3
+    assert vowelscount("") == 0
+    assert vowels_count("a") == 1
+    assert vowels_count("y") == 1
+    assert vowels_count("Y") == 1
+    assert vowels_count("abcdefghijklmnopqrstuvwxyz") == 5
+    assert vowels_count("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 5
+    assert vowels_count("aeiou") == 5
+    assert vowels_count("bcdfghjklmnpqrstvwxyz") == 0
+    assert vowels_count("BCDFGHJKLMNPQRSTVWXYZ") == 0
+    assert vowels_count("bcdfghjklmnpqrstvwxyzY") == 1
+    assert vowels_count("BCDFGHJKLMNPQRSTVWXYZY") == 1
+    print("All tests passed.")
+
+
+if __name__ == "__main__":
+    test_v
+Task_ID HumanEval/95:
+Prompt:
+
+def check_dict_case(dict):
+    """
+    Given a dictionary, return True if all keys are strings in lower 
+    case or all keys are strings in upper case, else return False.
+    The function should return False is the given dictionary is empty.
+    Examples:
+    check_dict_case({"a":"apple", "b":"banana"}) should return True.
+    check_dict_case({"a":"apple", "A":"banana", "B":"banana"}) should return False.
+    check_dict_case({"a":"apple", 8:"banana", "a":"apple"}) should return False.
+    check_dict_case({"Name":"John", "Age":"36", "City":"Houston"}) should return False.
+    check_dict_case({"STATE":"NC", "ZIP":"12345" }) should return True.
+    """
+
+Response:
+
+def check_dict_case(dict):
+    """
+    Given a dictionary, return True if all keys are strings in lower 
+    case or all keys are strings in upper case, else return False.
+    The function should return False is the given dictionary is empty.
+    Examples:
+    check_dict_case({"a":"apple", "b":"banana"}) should return True.
+    check_dict_case({"a":"apple", "A":"banana", "B":"banana"}) should return False.
+    check_dict_case({"a":"apple", 8:"banana", "a":"apple"}) should return False.
+    check_dict_case({"Name":"John", "Age":"36", "City":"Houston"}) should return False.
+    check_dict_case({"STATE":"NC", "ZIP":"12345" }) should return True.
+    """
+    if not dict:
+        return False
+    lower_case = [k.islower() for k in dict.keys()]
+    upper_case = [k.isupper() for k in dict.keys()]
+    return all(lower_case) or all(upper_case)
+
+# Test cases
+print(check_dict_case({"a":"apple", "b":"banana"}))  # should return True
+print(check_dict_case({"a":"apple", "A":"banana", "B":"banana"}))  # should return False
+print(check_dict_case({"a":"apple", 8:"banana", "a":"apple"}))  # should return False
+print(check_dict_case({"Name":"John", "Age":"36", "City":"Houston"}))  # should return False
+print(check_dict_case({"STATE":"NC", "ZIP":"12345" }))  # should return True
+print(checkcheck_dict_case({"a":"apple", "b":"banana"}) should return True.
+print(check_dict_case({"a":"apple", "A":"banana", "B":"banana"}) should return False.
+print(check_dict_
+Task_ID HumanEval/54:
+Prompt:
+
+
+def same_chars(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+
+Response:
+
+
+def same_chars(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+    return sorted(s0) == sorted(s1)
+
+
+def same_chars_v2(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars_v2('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars_v2('abcd', 'dddddddabc')
+    True
+    >>> same_chars_v2('dddddddabc', 'abcd')
+    True
+    >>> same_chars_v2('eabcd', 'dddddddabc')
+    False
+    >>> same_chars_v2('abcd', 'dddddddabce')
+    False
+    >>> same_chars_v2('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+    return Counter(s0) == Counter(s1)
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
+
+#tests/test_same_chars.py
+import pytest
+from same_chars import same_chars, same_chars_v2
+
+
+@pytest.mark.parametrize(
+    "s0,s1,expected",
+
