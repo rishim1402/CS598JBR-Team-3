@@ -3,10 +3,6 @@ import sys
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-#####################################################
-# Please finish all TODOs in this file for MP2;
-#####################################################
-
 def save_file(content, file_path):
     with open(file_path, 'w') as file:
         file.write(content)
@@ -14,27 +10,76 @@ def save_file(content, file_path):
 def prompt_model(dataset, model_name = "deepseek-ai/deepseek-coder-6.7b-instruct", vanilla = True):
     print(f"Working with {model_name} prompt type {vanilla}...")
     
-    # TODO: download the model
-    # TODO: load the model with quantization
-    
+    # Download and load the model with quantization
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16
+    )
+    model = AutoModelForCausalLM.from_pretrained(model_name, quantization_config=bnb_config, device_map="auto")
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     results = []
     for entry in dataset:
-        # TODO: create prompt for the model
-        # Tip : Use can use any data from the dataset to create 
-        #       the prompt including prompt, canonical_solution, test, etc.
-        prompt = ""
-        
-        # TODO: prompt the model and get the response
-        response = ""
+        # Create prompt for the model based on instructions
+        try:
+            test_assertion = entry['test'].split('assert')[1].strip()
+            if 'not candidate' in test_assertion:
+                input_str = test_assertion.split('not candidate(')[1].split(')')[0].strip()
+                expected_output = False
+            else:
+                input_str = test_assertion.split('candidate(')[1].split(')')[0].strip()
+                expected_output = test_assertion.split('==')[1].strip()
+                
+            input_str = input_str.strip("'")  # Remove surrounding single quotes
+        except IndexError:
+            expected_output = True
+        prompt = entry.get('prompt', '')
+        canonical_solution = entry.get('canonical_solution', '')
 
-        # TODO: process the response and save it to results
-        verdict = False
+        # Combine the prompt and canonical solution to get the complete function definition
+        function_definition = prompt + canonical_solution
+        if vanilla:
+            if vanilla:
+              try:
+                test_assertion = entry['test'].split('assert')[1].strip()
+                if 'not candidate' in test_assertion:
+                    input_str = test_assertion.split('not candidate(')[1].split(')')[0].strip()
+                    expected_output = False
+                else:
+                    input_str = test_assertion.split('candidate(')[1].split(')')[0].strip()
+                    expected_output = test_assertion.split('==')[1].strip()
+                
+                input_str = input_str.strip("'")  # Remove surrounding single quotes
+              except IndexError:
+                expected_output = True
+            prompt = entry.get('prompt', '')
+            canonical_solution = entry.get('canonical_solution', '')
 
-        print(f"Task_ID {entry['task_id']}:\nprompt:\n{prompt}\nresponse:\n{response}\nis_correct:\n{verdict}")
+            # Combine the prompt and canonical solution to get the complete function definition
+            function_definition = prompt + canonical_solution
+            
+            prompt = f"You are an AI programming assistant. You are an AI programming assistant, utilizing the DeepSeekCoder model, developed by DeepSeek Company, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer.\n### Instruction:\nIf the input is '{input_str}', what will the following code return?\nThe return value prediction must be enclosed between [Output] and [/Output] tags. For example: [Output]prediction[/Output].\n\n{function_definition}\n\n### Response:"
+        else:
+            # TODO: Implement prompt crafting as per instructions
+            #prompt = f"You are an AI programming assistant. You are an AI programming assistant, utilizing the DeepSeekCoder model, developed by DeepSeek Company, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer.\n### Instruction:\nIf the input is '{input_str}', what will the following code return?\nThe return value prediction must be enclosed between [Output] and [/Output] tags. For example: [Output]prediction[/Output]\n\nReason step by step to solve the problem.\n\n{function_definition}\n\n### Response:"
+            prompt = f"You are an AI programming assistant, utilizing the DeepSeekCoder model, developed by DeepSeek Company, and you only answer questions related to computer science. \n### Instruction:\nIf the input is '{input_str}', what will the following code return? Reason your solution step by step before finally reaching the answer. Also, enclose the final result between [Output] and [/Output] tags.\n\n{function_definition}\n\n### Response:"         
+        # Prompt the model and get the response
+        input_ids = tokenizer.encode(prompt, return_tensors="pt").to("cuda")
+        output = model.generate(input_ids, max_length=1000, num_return_sequences=1, temperature=0.7)
+        response = tokenizer.decode(output[0], skip_special_tokens=True)
+
+        # Process the response and save it to results
+        predicted_output = response.split('[Output]')[-1].split('[/Output]')[0].strip() if '[Output]' in response else ""
+        verdict = str(predicted_output == str(expected_output))
+        print(f"%%%%%%%%%%%%%%%%%%%%%\n\n{response}\n\n%%%%%%%%%%%%%%%%%%%%")
+        print(f"\n\nExpected output: {expected_output}\n\n")
+        print(f"is_correct: {verdict}")
+        # print(f"Task_ID {entry['task_id']}:\nprompt:\n{prompt}\nresponse:\n{response}\nis_correct:\n{verdict}")
         results.append({
-            "task_id": entry["task_id"],
+            "task_id": entry["task_id"], 
             "prompt": prompt,
-            "response": response,
+            "response": response, 
             "is_correct": verdict
         })
         
@@ -49,35 +94,20 @@ def read_jsonl(file_path):
 
 def write_jsonl(results, file_path):
     with jsonlines.open(file_path, "w") as f:
-        for item in results:
-            f.write_all([item])
+        f.write_all(results)
 
 if __name__ == "__main__":
-    """
-    This Python script is to run prompt LLMs for code synthesis.
-    Usage:
-    `python3 Task_1.py <input_dataset> <model> <output_file> <if_vanilla>`|& tee prompt.log
-
-    Inputs:
-    - <input_dataset>: A `.jsonl` file, which should be your team's dataset containing 20 HumanEval problems.
-    - <model>: Specify the model to use. Options are "deepseek-ai/deepseek-coder-6.7b-base" or "deepseek-ai/deepseek-coder-6.7b-instruct".
-    - <output_file>: A `.jsonl` file where the results will be saved.
-    - <if_vanilla>: Set to 'True' or 'False' to enable vanilla prompt
-    
-    Outputs:
-    - You can check <output_file> for detailed information.
-    """
     args = sys.argv[1:]
-    input_dataset = args[0]
+    input_dataset = args[0] 
     model = args[1]
     output_file = args[2]
     if_vanilla = args[3] # True or False
     
     if not input_dataset.endswith(".jsonl"):
-        raise ValueError(f"{input_dataset} should be a `.jsonl` file!")
+        raise ValueError(f"{input_dataset} should be a .jsonl file!")
     
     if not output_file.endswith(".jsonl"):
-        raise ValueError(f"{output_file} should be a `.jsonl` file!")
+        raise ValueError(f"{output_file} should be a .jsonl file!")
     
     vanilla = True if if_vanilla == "True" else False
     
